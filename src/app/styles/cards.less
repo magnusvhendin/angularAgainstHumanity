@@ -1,0 +1,52 @@
+@import "variables.less";
+
+.card {
+	height: @card-height;
+	width: @card-width;
+	padding: 10px;
+	//display: inline-block;
+	font-family: Helvetica;
+	font-weight: bold;
+	border-radius: 15px;
+	margin-right: @base-padding;
+	margin-bottom: @base-padding;
+	float: left;
+
+    @media (max-width: 750px) {
+      	height: @card-height / 1.5;
+		width: @card-width / 1.5;
+        display: inline-block;
+        
+        &.answer {
+            //float: none;
+        }
+
+		.text {
+			font-size: @card-font-size / 2 !important;
+		}
+    }
+	
+	.text {
+		font-size: @card-font-size;
+		text-align: left;
+	}
+	
+	&.question {
+		background-color: #000;
+
+		.text {
+			color: #fff;
+		}
+	}
+	&.answer {
+		background-color: #fff;
+		cursor: pointer;
+		
+		.text {
+			color: #000;
+		}
+	}
+	&.empty {
+		border: dashed 3px gray;
+	}
+}

@@ -1,0 +1,19 @@
+<div class="board">
+    <div class="jumbotron" ng-show="main.shuffling">
+        <h1>Setting up deck...</h1>
+    </div>
+    <div ng-hide="main.shuffling" class="inner-board">
+        <div class="questions">
+            <question ng-if="main.question" ng-model="main.question" ></question>
+            <selectedcard ng-repeat="card in main.selectedCards track by $index" ng-model="card" ></selectedcard>
+        </div>
+        <div ng-if="main.answerCards" class="answers">
+            <div class="inner-answers">
+                <answer ng-repeat="answer in main.answerCards" ng-model="answer" ></answer>
+            </div>
+        </div>
+        <div ng-hide="false" class="submit">
+            <div class="submit-btn" ng-click="main.submitAnswer(main.question, main.selectedCards)">Submit answer</div>
+        </div>
+    </div>
+</div>

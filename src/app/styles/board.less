@@ -1,0 +1,75 @@
+@import "variables.less";
+
+.board {
+	position: absolute;
+    height: 100%;
+    width: 100%;
+	background-color: @base-bg;
+    
+    .inner-board {
+        position: absolute;
+        margin: @base-padding;
+        width: 100%;
+
+        .questions {
+            display: inline-block;
+            border-bottom: solid 3px #808080;
+        }
+        .answers {
+            display: inline-block;
+        }
+        .submit {
+            display: inline-block;
+            
+            
+            .submit-btn {
+                border: solid 3px #808080;
+                cursor: pointer;
+                font-size: 30px;
+                padding: 10px;
+                border-radius: 15px;
+                
+                &:hover {
+                    background-color: #808080;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 750px) {
+        .inner-board {
+            .questions {
+                height: 30%;
+                
+            }
+            .answers {
+                width: 100%;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                max-height: @card-height-min;
+                
+                .inner-answers {
+                    width: @card-width-min * 10 + (@base-padding * 10);
+                }
+            }
+            .submit {
+                display: block;
+                
+                .submit-btn {
+                    border: solid 3px #808080;
+                    cursor: pointer;
+                    font-size: 20px;
+                    padding: 7px;
+                    border-radius: 12px;
+                    margin: 0 5px 0 5px;
+                    text-align: center;
+                    user-select: none;
+                    
+                    &:hover {
+                        background-color: #808080;
+                    }
+                }
+            }
+        }
+    }
+}
