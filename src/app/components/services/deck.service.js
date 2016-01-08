@@ -4,15 +4,15 @@
     'use strict';
     
      angular
-    .module('services', [])
+    .module('services.deck', [])
     .service('deckService', DeckService);
     
-    function Deck (deck) {
-        this.qCards = deck.qCards.map(function (card) {
+    function Deck (answers, questions) {
+        this.qCards = questions.map(function (card) {
             card.text = card.text.replace('<br>', '\n');
             return card;
         });
-        this.aCards = deck.aCards.map(function (card) {
+        this.aCards = answers.map(function (card) {
             card.selected = false;
             card.selectedIndex = undefined;
             card.text = card.text.replace('<br>', '\n');
@@ -46,16 +46,23 @@
 
     /** @ngInject */
     function DeckService($q) {
+        var baseUrl = 'https://shining-inferno-6102.firebaseio.com/';
+        
         return {
             getDeck: function () {
                 
                 var deferred = $q.defer();
                 
-                var deckRef = new Firebase('https://shining-inferno-6102.firebaseio.com');
-                    
-                deckRef.on('value', function (snapshot) {
-                    var deck = new Deck(snapshot.val());
-                    deferred.resolve(deck);
+                var answersRef = new Firebase(baseUrl + 'aCards');
+                var questionsRef = new Firebase(baseUrl + 'qCards');
+                
+                
+                answersRef.once('value', function (aSnapshot) {                    
+                    questionsRef.once('value', function (qSnapshot) {                        
+                        var deck = new Deck(aSnapshot.val(), qSnapshot.val());
+                        
+                        deferred.resolve(deck);
+                    });
                 });
                 
                 return deferred.promise;

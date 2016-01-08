@@ -1,0 +1,22 @@
+<div class="board">
+    <div class="jumbotron" ng-show="game.shuffling">
+        <h1>Setting up deck...</h1>
+    </div>
+    <div class="jumbotron" ng-show="game.shuffling">
+        <h1>Setting up deck...</h1>
+    </div>
+    <div ng-hide="game.shuffling" class="inner-board">
+        <div class="questions">
+            <question ng-if="game.question" ng-model="game.question" ></question>
+            <selectedcard ng-repeat="card in game.selectedCards track by $index" ng-model="card" ></selectedcard>
+        </div>
+        <div ng-if="game.answerCards" class="answers">
+            <div class="inner-answers">
+                <answer ng-repeat="answer in game.answerCards" ng-model="answer" ></answer>
+            </div>
+        </div>
+        <div ng-hide="false" class="submit">
+            <div class="submit-btn" ng-click="game.submitAnswer(game.question, game.selectedCards)">Submit answer</div>
+        </div>
+    </div>
+</div>

@@ -1,12 +1,25 @@
 (function() {
   'use strict';
+  
+    // Services module
+    angular.module('services', [
+        'services.deck',
+        'services.game'
+    ]);
+    
+    // Directives module
+    angular.module('directives', [
+        'directives.card.answer',
+        'directives.card.question',
+        'directives.card.selectedcard'
+      ]);
 
-    angular
-        .module('angularAgainstHumanity', [
+    // Main module
+    angular.module('angularAgainstHumanity', [
             'ngAnimate', 
             'ngCookies', 
             'ngTouch', 
-            'ngRoute', 
+            'ngRoute',
             'services', 
             'directives'
         ]);

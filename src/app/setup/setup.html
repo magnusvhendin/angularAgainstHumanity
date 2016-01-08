@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 text-center">
+            <p>
+                <form class="menu-choice">
+                    <div class="form-group">
+                        <label for="playerName">Name: </label>
+                        <input id="playerName" ng-model="setup.playerName" class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="gameId">Game ID: </label>
+                        <input id="gameId" ng-model="setup.joinId" class="form-control" type="text" />
+                        <i>Only if you want to join an existing game.</i>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn btn-success form-control" ng-show="setup.joinId.length < 1">Start game</div>
+                        <div class="btn btn-success form-control" ng-show="setup.joinId.length > 0">Join game</div>
+                    </div>
+                </form>
+            </p>
+        </div>
+    </div>
+</div>

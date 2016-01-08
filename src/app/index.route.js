@@ -17,6 +17,16 @@
         controller: 'PlaygroundController',
         controllerAs: 'main'
       })
+      .when('/setup', {
+        templateUrl: 'app/setup/setup.html',
+        controller: 'SetupController',
+        controllerAs: 'setup'
+      })
+      .when('/game', {
+        templateUrl: 'app/game/game.html',
+        controller: 'GameController',
+        controllerAs: 'game'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,12 +1,16 @@
-<div class="row">
+<div>
 
   <div class="jumbotron">
     <h1>Angular Against Humanity</h1>
     <p class="lead">
-      <span>{{main.warning}}</span>
+      <p>{{main.warning}}</p>
     </p>
     <p>
-        <button class="btn btn-default" ng-click="main.goToPlayground()">Continue to playground</button>
+        <button class="btn btn-primary" ng-click="main.startNewGame()">Okay, I got it. Just let<br> me play the fucking game.</button>
     </p>
+    <p>
+        <button class="btn btn-danger" ng-click="main.goToPlayground()">Continue to playground</button>
+    </p>
+    <span class="copyright">{{main.copyright}}</span>
   </div>
 </div>
