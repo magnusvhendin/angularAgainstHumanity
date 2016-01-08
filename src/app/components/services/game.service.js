@@ -13,20 +13,30 @@
         this.currentPlayer = undefined;
         this.currentQuestion = undefined;
         this.id = undefined;
-        this.latest = moment('yyyy-MM-dd HH:mm');
+        this.latest = moment().format('YYYY-MM-DD HH:mm');
         this.playTo = 7;
         this.playerCount = 1;
-        this.playerMax = 7;
+        this.playerMax = 10;
         this.players = [_creator];
-        this.started = moment('yyyy-MM-dd HH:mm');
-        this.status = 'starting';
+        this.started = moment().format('YYYY-MM-DD HH:mm');
+        this.status = 'started';
         this.timeLimit = 0;
     }
+    
+    function Player (_name) {
+        this.name = _name;
+        this.cardsOnHand = [];
+        this.id = 0;
+        this.points = 0;
+        this.wonCards = [];
+    };
 
     /** @ngInject */
     function GameService($q, deckService) {
+        var gameUrl = 'https://shining-inferno-6102.firebaseio.com/games/';
+        
         return {
-            newGame: function (_creator) {
+            newGame: function (_creator, id) {
                 var deferred = $q.defer();
                 
                 deckService.getDeck().then(function (deck) {
@@ -36,6 +46,9 @@
                 });
                 
                 return deferred.promise;
+            },
+            newPlayer: function (name) {
+                return new Player(name);
             }
         }
     }

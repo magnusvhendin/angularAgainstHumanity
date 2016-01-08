@@ -7,7 +7,7 @@
     
 
   /** @ngInject */
-  function GameController(deckService, gameService, $scope, $log) {
+  function GameController(deckService, gameService, $log) {
     var vm = this;
 
     activate();

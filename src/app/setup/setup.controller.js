@@ -7,7 +7,7 @@
     
 
   /** @ngInject */
-  function SetupController(deckService, gameService, $scope, $log) {
+  function SetupController(deckService, gameService, $log) {
     var vm = this;
     
     activate();
@@ -17,12 +17,20 @@
        vm.joinId = ''; 
     }
     
-    vm.startNewGame = function () {
+    vm.join = function () {
+        if (vm.playerName.length < 1) return;
+        if (vm.joinId.length < 1) return;
         
+              
     };
-    
-    vm.joinExistingGame = function () {
+    vm.create = function () {
+        if (vm.playerName.length < 1) return;
+        if (vm.joinId.length < 1) return;
         
+        var player = gameService.newPlayer(vm.playerName);
+        gameService.newGame(player, vm.joinId).then(function (game) {
+            $log.debug(player, game);    
+        });
     };
   }
 })();

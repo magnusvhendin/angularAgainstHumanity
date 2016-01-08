@@ -14,7 +14,7 @@
         replace: true,
         restrict: 'E',
         templateUrl: './app/components/card-directives/question.directive.html',
-        link: function ($scope) {
+        link: function () {
           
         }
     }

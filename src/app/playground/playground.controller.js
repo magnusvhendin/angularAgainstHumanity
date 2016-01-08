@@ -7,7 +7,7 @@
     
 
   /** @ngInject */
-  function PlaygroundController(deckService, $scope, $log) {
+  function PlaygroundController(deckService, $log) {
     var vm = this;
 
     var vars = {

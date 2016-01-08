@@ -10,14 +10,19 @@
                     <div class="form-group">
                         <label for="gameId">Game ID: </label>
                         <input id="gameId" ng-model="setup.joinId" class="form-control" type="text" />
-                        <i>Only if you want to join an existing game.</i>
+                        <i>Enter the name of the game you wish to create or join.</i>
                     </div>
                     <div class="form-group">
-                        <div class="btn btn-success form-control" ng-show="setup.joinId.length < 1">Start game</div>
-                        <div class="btn btn-success form-control" ng-show="setup.joinId.length > 0">Join game</div>
+                        <div class="btn btn-success" ng-click="setup.create()" ng-disabled="setup.playerName.length < 1 || setup.joinId.length < 1">
+                            <span>Create game</span>
+                        </div>
+                        <div class="btn btn-success" ng-click="setup.join()" ng-disabled="setup.playerName.length < 1 || setup.joinId.length < 1">
+                            <span>Join game</span>
+                        </div>
                     </div>
                 </form>
             </p>
         </div>
     </div>
 </div>
+<overlay></overlay>

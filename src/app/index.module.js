@@ -11,7 +11,8 @@
     angular.module('directives', [
         'directives.card.answer',
         'directives.card.question',
-        'directives.card.selectedcard'
+        'directives.card.selectedcard',
+        'directives.overlay'
       ]);
 
     // Main module
