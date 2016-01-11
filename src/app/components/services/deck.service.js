@@ -14,7 +14,7 @@
         });
         this.aCards = answers.map(function (card) {
             card.selected = false;
-            card.selectedIndex = undefined;
+            card.selectedIndex = 0;
             card.text = card.text.replace('<br>', '\n');
             return card;
         });

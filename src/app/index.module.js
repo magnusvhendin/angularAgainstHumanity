@@ -4,7 +4,8 @@
     // Services module
     angular.module('services', [
         'services.deck',
-        'services.game'
+        'services.game',
+        'services.general.nullcheck'
     ]);
     
     // Directives module
